@@ -1,0 +1,155 @@
+import type { SacramentMeeting } from './types';
+
+// Temporary in-memory data store. It resets every time the server restarts.
+const meetings: SacramentMeeting[] = [
+  {
+    id: 1,
+    date: '2026-10-04',
+    meetingType: 'general',
+    presiding: 'First Presidency',
+    conducting: 'General Church leaders',
+    announcements: [
+      'No ward meetings today. Watch the Sunday sessions of General Conference.',
+      'Sessions are broadcast at 10:00 a.m. and 2:00 p.m.',
+    ],
+    openingHymn: { number: 19, title: 'We Thank Thee, O God, for a Prophet' },
+    openingPrayer: 'As assigned',
+    wardBusiness: [],
+    stakeBusiness: false,
+    speakers: [
+      { name: 'General Church leaders', topic: 'Conference addresses', type: 'speaker' },
+      { name: 'Tabernacle Choir at Temple Square', topic: '', type: 'musical-number' },
+    ],
+    closingHymn: { number: 27, title: 'Praise to the Man' },
+    closingPrayer: 'As assigned',
+  },
+  {
+    id: 2,
+    date: '2026-10-11',
+    meetingType: 'regular',
+    presiding: 'Bishop Smith',
+    conducting: 'Brother Jones',
+    announcements: ['Ward temple night: Thursday, October 15 at 7:00 p.m.'],
+    openingHymn: { number: 2, title: 'The Spirit of God' },
+    openingPrayer: 'Sister Williams',
+    wardBusiness: [
+      { description: 'Sustaining of Sister Martinez as Primary president' },
+      { description: 'Release of Brother Lee as ward clerk, with a vote of thanks' },
+    ],
+    stakeBusiness: false,
+    sacramentHymn: { number: 183, title: 'In Remembrance of Thy Suffering' },
+    speakers: [
+      { name: 'Sister Brown', topic: 'Faith in Jesus Christ', type: 'speaker' },
+      { name: 'Youth Choir', topic: 'I Know That My Redeemer Lives', type: 'musical-number' },
+      { name: 'Brother Garcia', topic: 'Following the prophet', type: 'speaker' },
+    ],
+    closingHymn: { number: 31, title: 'O God, Our Help in Ages Past' },
+    closingPrayer: 'Brother Davis',
+  },
+  {
+    id: 3,
+    date: '2026-10-18',
+    meetingType: 'regular',
+    presiding: 'Bishop Smith',
+    conducting: 'Brother Nguyen',
+    announcements: ['Trunk-or-treat: Saturday, October 31 at 6:00 p.m.'],
+    openingHymn: { number: 85, title: 'How Firm a Foundation' },
+    openingPrayer: 'Brother Taylor',
+    wardBusiness: [{ description: 'Ordination of Ethan Clark to the office of priest' }],
+    stakeBusiness: true,
+    sacramentHymn: { number: 169, title: 'As Now We Take the Sacrament' },
+    speakers: [
+      { name: 'Ava Clark (youth speaker)', topic: 'Personal prayer', type: 'speaker' },
+      { name: 'Sister Robinson', topic: 'Ministering like the Savior', type: 'speaker' },
+      { name: 'Brother Robinson', topic: 'The blessings of the temple', type: 'speaker' },
+    ],
+    closingHymn: { number: 223, title: 'Have I Done Any Good?' },
+    closingPrayer: 'Sister Hall',
+  },
+  {
+    id: 4,
+    date: '2026-10-25',
+    meetingType: 'regular',
+    presiding: 'Bishop Smith',
+    conducting: 'Brother Jones',
+    openingHymn: { number: 86, title: 'How Great Thou Art' },
+    openingPrayer: 'Sister Lopez',
+    wardBusiness: [],
+    stakeBusiness: false,
+    sacramentHymn: { number: 193, title: 'I Stand All Amazed' },
+    speakers: [
+      { name: 'Brother Wilson', topic: 'Repentance and joy', type: 'speaker' },
+      { name: 'Sister Kim (violin)', topic: 'Abide with Me!', type: 'musical-number' },
+      { name: 'Sister Wilson', topic: 'The power of the Book of Mormon', type: 'speaker' },
+    ],
+    closingHymn: { number: 166, title: 'Abide with Me!' },
+    closingPrayer: 'Brother Allen',
+  },
+  {
+    id: 5,
+    date: '2026-11-01',
+    meetingType: 'testimony',
+    presiding: 'Bishop Bory',
+    conducting: 'Brother Nguyen',
+    announcements: ['Today is fast Sunday. Fast offerings may be given to the bishopric.'],
+    openingHymn: { number: 136, title: 'I Know That My Redeemer Lives' },
+    openingPrayer: 'Sister Young',
+    wardBusiness: [{ description: 'Baby blessing: Olivia Rose Harris' }],
+    stakeBusiness: false,
+    sacramentHymn: { number: 172, title: 'In Humility, Our Savior' },
+    speakers: [],
+    closingHymn: { number: 301, title: 'I Am a Child of God' },
+    closingPrayer: 'Brother King',
+  },
+  {
+    id: 6,
+    date: '2026-11-08',
+    meetingType: 'regular',
+    presiding: 'Bishop Pena',
+    conducting: 'Brother Jones',
+    announcements: [
+      'Ward Thanksgiving dinner: Saturday, November 21 at 5:30 p.m.',
+      'Stake conference is next Sunday. There will be no ward meetings.',
+    ],
+    openingHymn: { number: 94, title: 'Come, Ye Thankful People' },
+    openingPrayer: 'Sister Adams',
+    wardBusiness: [{ description: 'Sustaining of Brother Scott as elders quorum secretary' }],
+    stakeBusiness: false,
+    sacramentHymn: { number: 187, title: 'God Loved Us, So He Sent His Son' },
+    speakers: [
+      { name: 'Sister Turner', topic: 'Gratitude in all things', type: 'speaker' },
+      { name: 'Primary children', topic: 'I Am a Child of God', type: 'musical-number' },
+      { name: 'Brother Turner', topic: 'Counting our blessings', type: 'speaker' },
+    ],
+    closingHymn: { number: 241, title: 'Count Your Blessings' },
+    closingPrayer: 'Brother Baker',
+  },
+  {
+    id: 7,
+    date: '2026-11-15',
+    meetingType: 'stake',
+    presiding: 'President Anderson, stake president',
+    conducting: 'President Moore, first counselor',
+    announcements: ['Stake conference general session at the stake center, 10:00 a.m.'],
+    openingHymn: { number: 30, title: 'Come, Come, Ye Saints' },
+    openingPrayer: 'Sister Parker',
+    wardBusiness: [],
+    stakeBusiness: true,
+    speakers: [
+      { name: 'Sister Anderson', topic: 'Strengthening our families', type: 'speaker' },
+      { name: 'Stake choir', topic: 'Come, Thou Fount of Every Blessing', type: 'musical-number' },
+      { name: 'President Anderson', topic: 'Gathering Israel', type: 'speaker' },
+    ],
+    closingHymn: { number: 152, title: 'God Be with You Till We Meet Again' },
+    closingPrayer: 'Brother Evans',
+  },
+];
+
+export function getMeetings(date?: string | null): SacramentMeeting[] {
+  const result = date ? meetings.filter((m) => m.date === date) : meetings;
+  return [...result].sort((a, b) => b.date.localeCompare(a.date));
+}
+
+export function getMeetingById(id: number): SacramentMeeting | null {
+  return meetings.find((m) => m.id === id) ?? null;
+}
