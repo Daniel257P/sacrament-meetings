@@ -89,7 +89,7 @@ const meetings: SacramentMeeting[] = [
     id: 5,
     date: '2026-11-01',
     meetingType: 'testimony',
-    presiding: 'Bishop Smith',
+    presiding: 'Bishop Bory',
     conducting: 'Brother Nguyen',
     announcements: ['Today is fast Sunday. Fast offerings may be given to the bishopric.'],
     openingHymn: { number: 136, title: 'I Know That My Redeemer Lives' },
@@ -105,7 +105,7 @@ const meetings: SacramentMeeting[] = [
     id: 6,
     date: '2026-11-08',
     meetingType: 'regular',
-    presiding: 'Bishop Smith',
+    presiding: 'Bishop Pena',
     conducting: 'Brother Jones',
     announcements: [
       'Ward Thanksgiving dinner: Saturday, November 21 at 5:30 p.m.',
