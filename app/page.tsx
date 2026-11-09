@@ -7,9 +7,9 @@ export default function Home() {
     <div className="flex flex-col gap-8">
       <Image
         src="/images/chapel.jpg"
-        alt="Illustration of a white chapel with a steeple, surrounded by green hills and trees"
-        width={960}
-        height={400}
+        alt="Brick meetinghouse with a white steeple, surrounded by autumn trees"
+        width={1907}
+        height={1080}
         priority
         className="h-auto w-full rounded-lg border border-border"
       />
