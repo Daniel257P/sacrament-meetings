@@ -19,7 +19,7 @@ export async function GET(
     );
   }
 
-  const meeting = getMeetingById(Number(id));
+  const meeting = await getMeetingById(Number(id));
   if (!meeting) {
     return NextResponse.json(
       { error: `Meeting ${id} was not found.` },
