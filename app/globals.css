@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
+/* ---- Shared design tokens -------------------------------------------- */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground: #1f2937;
+  --surface: #f4f6f9;
+  --muted: #4b5563;
+  --border: #d5dbe3;
+  --primary: #1e3a5f;
+  --primary-foreground: #ffffff;
+  --accent: #b7791f;
+  --accent-strong: #7a4f0e;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0f172a;
+    --foreground: #e5e7eb;
+    --surface: #1e293b;
+    --muted: #b6c0cc;
+    --border: #334155;
+    --primary: #93c5fd;
+    --primary-foreground: #0f172a;
+    --accent: #f6ad55;
+    --accent-strong: #fbd38d;
   }
+}
+
+/* Expose the tokens to Tailwind, e.g. bg-primary, text-muted, border-border */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-lora);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* ---- Printing a program ---------------------------------------------- */
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .program {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  /* The program's own header must stay visible when printing. */
+  .program header {
+    display: block !important;
+  }
 }
