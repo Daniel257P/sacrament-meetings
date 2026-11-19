@@ -43,6 +43,34 @@ export interface ApiError {
   error: string;
 }
 
+/** Names of the inputs in the create/edit meeting form. */
+export type MeetingFormField =
+  | 'date'
+  | 'meetingType'
+  | 'presiding'
+  | 'conducting'
+  | 'announcements'
+  | 'openingHymnNumber'
+  | 'openingHymnTitle'
+  | 'openingPrayer'
+  | 'wardBusiness'
+  | 'stakeBusiness'
+  | 'sacramentHymnNumber'
+  | 'sacramentHymnTitle'
+  | 'speakers'
+  | 'closingHymnNumber'
+  | 'closingHymnTitle'
+  | 'closingPrayer';
+
+/** State returned by the createMeeting/updateMeeting Server Actions. */
+export interface MeetingFormState {
+  message: string | null;
+  errors: Partial<Record<MeetingFormField, string[]>>;
+  // The values the user submitted, so the form can show them again
+  // after a failed validation instead of clearing every field.
+  values?: Record<MeetingFormField, string>;
+}
+
 /** A single link rendered by the NavLinks component. */
 export interface NavItem {
   href: string;

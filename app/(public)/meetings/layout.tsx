@@ -5,6 +5,7 @@ import type { NavItem } from "@/lib/types";
 const sectionLinks: NavItem[] = [
   { href: "/meetings", label: "All meetings" },
   { href: "/meetings/current", label: "This Sunday" },
+  { href: "/meetings/new", label: "New meeting" },
 ];
 
 export default function MeetingsLayout({ children }: LayoutProps<"/meetings">) {
